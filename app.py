@@ -130,6 +130,10 @@ def forgot_password():
 def page_not_found(e):
     return render_template('404.html'), 404
 
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('404.html'), 500
+
 @app.route('/count', methods=['GET', 'POST'])
 def startCount():
     return render_template('counter.html')
